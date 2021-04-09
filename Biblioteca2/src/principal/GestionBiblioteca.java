@@ -6,10 +6,10 @@ import clases.Libro;
 public class GestionBiblioteca {
 
 	public static void main(String[] args) {
-		// fallo 1
-		// ======================
-		// == Creamos 2 libros ==
-		// ======================
+		
+   // Actualizacion Prueba GitHub
+	//Esta es una prueba para ver que se ha modificado el codigo
+		
 		Libro l1 = new Libro("IT", "Stephen King", 1504, 5, 0);
 		Libro l2 = new Libro("El Señor de los Anillos - La comunidad del anillo", "J.R.R. Tolkien", 547, 10, 10);
 
