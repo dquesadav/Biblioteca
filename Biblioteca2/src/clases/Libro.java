@@ -76,6 +76,7 @@ public class Libro extends Documento {
 		if (super.getNumEjemplaresPrestados() == 0) {
 			System.out.println("No se pueden devolver más libros, ¡están todos devueltos!.");
 			System.out.println("");
+			
 		} else {
 
 			super.decrementaNumEjemplaresPrestados();
@@ -99,43 +100,5 @@ public class Libro extends Documento {
 		System.out.println("");
 	}
 	
-	
-	public static void gestionLibros() {
-
-		/**
-		 * ====================== 
-		 * == Creamos 2 libros ==
-		 * ======================
-		 */
-
-		Libro l1 = new Libro("IT", "Stephen King", 1504, 5, 0);
-		Libro l2 = new Libro("El Señor de los Anillos - La comunidad del anillo", "J.R.R. Tolkien", 547, 10, 10);
-
-		// Mostramos información del primer libro
-		l1.displayInfo();
-
-		// Devolvemos un ejemplar de l1 (mirad que no tenemos dejado ninguno...)
-		l1.devolucion();
-
-		// Prestamos uno
-		l1.prestamo();
-
-		// Y ahora lo devolvemos
-		l1.devolucion();
-
-		// Mostramos información del segundo libro
-		l2.displayInfo();
-
-		// fallo
-		// Devolvemos un ejemplar de l2 (mirad que no tenemos dejado ninguno...)
-		l2.prestamo();
-
-		// Prestamos uno
-		l2.devolucion();
-
-		// Y ahora lo devolvemos
-		l2.prestamo();
-
-	}
 
 }

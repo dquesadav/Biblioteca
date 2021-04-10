@@ -1,5 +1,11 @@
 package principal;
 
+/**
+ * Esta clase sirve para poder hacer las gestiones de los libros y las enciclopedias 
+ * @author David Quesada Valls
+ * @version 1.0 
+ */
+
 import clases.Enciclopedia;
 import clases.Libro;
 
@@ -33,7 +39,6 @@ public class GestionBiblioteca {
 		// Mostramos información del segundo libro
 		l2.displayInfo();
 
-		// fallo
 		// Devolvemos un ejemplar de l2 (mirad que no tenemos dejado ninguno...)
 		l2.prestamo();
 
