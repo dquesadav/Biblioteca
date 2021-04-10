@@ -1,18 +1,40 @@
 package clases;
 
+     /**
+     * Esta clase sirve para crear Libros
+     * 
+     * @author David Quesada Valls
+     * @version 1.0
+     */
+
 public class Libro extends Documento {
 	
-	//Atributos
+	/**
+	 * Este atributo sirve para que cada Libro pueda tener su numero de paginas
+	 */
+	
+	// Atributos
 	private int numPaginas;
 
-	//Constructor
+	/**
+	 * Este es el constructor de la clase
+	 * 
+	 * @param numPaginas Es el numero de paginas que pueda tener el libro
+	 */
+	
+	// Constructor
 	public Libro(String titulo, String autor, int numPaginas, int numEjemplares, int numEjemplaresPrestados) {
 		super(titulo, autor, numEjemplares, numEjemplaresPrestados);
 		this.numPaginas = numPaginas;
 	}
 
+	/**
+	 * Getters and setters de la clase
+	 * 
+	 * @return numPaginas Es el numero de paginas que pueda tener el libro
+	 */
 	
-	//Getters and Setters
+	// Getters and Setters
 	public int getNumPaginas() {
 		return numPaginas;
 	}
@@ -20,12 +42,14 @@ public class Libro extends Documento {
 	public void setNumPaginas(int numPaginas) {
 		this.numPaginas = numPaginas;
 	}
+
+	// Metodos extra
 	
-	
-	//Metodos extra 
-	
-    // public void para la orden del prestamo
-	
+	/**
+	 * Este metodo realizará el prestamo del libro
+	 */
+
+	// public void para la orden del prestamo
 	public void prestamo() {
 
 		System.out.println("Iniciando el préstamo...");
@@ -34,23 +58,84 @@ public class Libro extends Documento {
 			System.out.println("No se pueden prestar más libros, ¡están todos prestados!");
 			System.out.println("");
 		} else {
+
 			super.incrementaNumEjemplaresPrestados();
 			System.out.println("El libro se ha prestado correctamente.");
 			System.out.println("");
 		}
 	}
-	
-    // public void para la orden de la devolucion
 
+	/**
+	 * Este metodo realizará la devolucion del libro
+	 */
+	
+	// public void para la orden de la devolucion
 	public void devolucion() {
 		System.out.println("Iniciando la devolución...");
+
 		if (super.getNumEjemplaresPrestados() == 0) {
 			System.out.println("No se pueden devolver más libros, ¡están todos devueltos!.");
 			System.out.println("");
 		} else {
+
 			super.decrementaNumEjemplaresPrestados();
 			System.out.println("El libro se ha devuelto correctamente.");
 			System.out.println("");
 		}
 	}
+	
+	/**
+	 * Este metodo nos devolverá todos los datos pedidos de los libros
+	 */
+
+	// public void para la informacion requerida de los libros
+	public void displayInfo() {
+		System.out.println("");
+		System.out.println("== Información del libro - " + this.getTitulo() + " ==");
+		System.out.println("Autor: " + this.getAutor());
+		System.out.println("Nº de páginas: " + this.getNumPaginas() + " páginas");
+		System.out.println("Número de ejemplares en posesión: " + this.getNumEjemplares());
+		System.out.println("Número de ejemplares prestados: " + this.getNumEjemplaresPrestados());
+		System.out.println("");
+	}
+	
+	
+	public static void gestionLibros() {
+
+		/**
+		 * ====================== 
+		 * == Creamos 2 libros ==
+		 * ======================
+		 */
+
+		Libro l1 = new Libro("IT", "Stephen King", 1504, 5, 0);
+		Libro l2 = new Libro("El Señor de los Anillos - La comunidad del anillo", "J.R.R. Tolkien", 547, 10, 10);
+
+		// Mostramos información del primer libro
+		l1.displayInfo();
+
+		// Devolvemos un ejemplar de l1 (mirad que no tenemos dejado ninguno...)
+		l1.devolucion();
+
+		// Prestamos uno
+		l1.prestamo();
+
+		// Y ahora lo devolvemos
+		l1.devolucion();
+
+		// Mostramos información del segundo libro
+		l2.displayInfo();
+
+		// fallo
+		// Devolvemos un ejemplar de l2 (mirad que no tenemos dejado ninguno...)
+		l2.prestamo();
+
+		// Prestamos uno
+		l2.devolucion();
+
+		// Y ahora lo devolvemos
+		l2.prestamo();
+
+	}
+
 }
